@@ -71,16 +71,27 @@ void insert(int l,int r, int n){
     }
 }
 
+void traverse(int n ){
+    Node node = tree[n];
+    if(node.l + 1 == node.r){
+        cout << "[" << node.l << "," << node.r << ")" << endl;
+    }else{
+        traverse(2*n);
+        traverse(2*n+1);
+    }
+}
+
 int main()
 {
     int n = 20;
     make_tree(1,n,1);
+    traverse(1);
     //search(16,1);
     int l = 1;
     int r = 18;
     if(l >= 1 && l < n && r >=1 && r <= n && l < r){
         insert(l,r,1);
-        print_tree();
+        //print_tree();
     }
 }
 
